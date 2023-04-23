@@ -1,0 +1,19 @@
+<Configuration name="ConfigTest" status="WARN" monitorInterval="5">
+	<Appenders>
+		<Console name="ABC" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{100} - %msg%n" />
+		</Console>
+
+	</Appenders>
+	<Loggers>
+		<Logger name="test.logger.classes" level="warn" additivity="false">
+			<AppenderRef ref="ABC" />
+		</Logger>
+		<Logger name="testProjtest.com.main" level="fatal" additivity="false">
+			<AppenderRef ref="ABC" />
+		</Logger>
+		<Root level="fatal">
+			<AppenderRef ref="ABC" />
+		</Root>
+	</Loggers>
+</Configuration>
