@@ -1,12 +1,14 @@
 <Configuration name="ConfigTest" status="WARN" monitorInterval="5">
+	<Properties>
+		<Property name="filename">./logs</Property>
+	</Properties>
 	<Appenders>
-		{
-              "RollingFile": {
-                "name": "Rolling-${sd:type}", "fileName": "${filename}",
-                "filePattern": "target/rolling1/test1-${sd:type}.%i.log.gz",
-                "PatternLayout": {"pattern": "%d %p %c{1.} [%t] %m%n"},
-                "SizeBasedTriggeringPolicy": { "size": "500" }
-               }
+		<RollingFile name="file" fileName="${filename}/logging.log" filePattern="${filename}/logs-%d{HH-mm-ss-SSS}.log">
+			<PatternLayout>
+				<pattern>%d %p %c{1.} [%t] %m%n</pattern>
+			</PatternLayout>
+			<SizeBasedTriggeringPolicy size="5 MB" />
+		</RollingFile>
 		<Console name="ABC" target="SYSTEM_OUT">
 			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{100} - %msg%n" />
 		</Console>
@@ -14,12 +16,12 @@
 	</Appenders>
 	<Loggers>
 		<Logger name="test.logger.classes" level="warn" additivity="false">
-			<AppenderRef ref="ABC" />
+			<AppenderRef ref="file" />
 		</Logger>
 		<Logger name="testProjtest.com.main" level="fatal" additivity="false">
-			<AppenderRef ref="ABC" />
+			<AppenderRef ref="file" />
 		</Logger>
-		<Root level="fatal">
+		<Root level="warn">
 			<AppenderRef ref="ABC" />
 		</Root>
 	</Loggers>

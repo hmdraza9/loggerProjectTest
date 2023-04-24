@@ -5,9 +5,8 @@ import org.apache.logging.log4j.Logger;
 
 public class TestLogger {
 
-	
 	private static final Logger logger = LogManager.getLogger(TestLogger.class.getName());
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
