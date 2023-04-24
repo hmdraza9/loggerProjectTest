@@ -1,5 +1,12 @@
 <Configuration name="ConfigTest" status="WARN" monitorInterval="5">
 	<Appenders>
+		{
+              "RollingFile": {
+                "name": "Rolling-${sd:type}", "fileName": "${filename}",
+                "filePattern": "target/rolling1/test1-${sd:type}.%i.log.gz",
+                "PatternLayout": {"pattern": "%d %p %c{1.} [%t] %m%n"},
+                "SizeBasedTriggeringPolicy": { "size": "500" }
+               }
 		<Console name="ABC" target="SYSTEM_OUT">
 			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{100} - %msg%n" />
 		</Console>
