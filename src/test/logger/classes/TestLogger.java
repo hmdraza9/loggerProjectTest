@@ -10,11 +10,11 @@ public class TestLogger {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		logger.error("error: First logger statement");
-		logger.debug("debug: First logger statement");
-		logger.fatal("fatal: First logger statement");
-		logger.info("info: First logger statement");
-		logger.warn("warn: First logger statement");
+		logger.error("error: First logger statement ");
+		logger.debug("debug: First logger statement ");
+		logger.fatal("fatal: First logger statement ");
+		logger.info("info: First logger statement ");
+		logger.warn("warn: First logger statement ");
 	}
 
 }
